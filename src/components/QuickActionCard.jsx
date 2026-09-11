@@ -45,11 +45,11 @@ export const QuickActionCard = React.memo(function QuickActionCard({ assignment,
         </div>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="relative flex items-center justify-between">
         <span className={`text-xs font-medium ${colors.text}`}>{assignment.student}</span>
-        <span className={`text-sm italic font-medium tracking-wider ${colors.text}`}>{assignment.course}</span>
+        <span className={`absolute left-1/2 -translate-x-1/2 text-sm italic font-medium tracking-wider ${colors.text}`}>{assignment.course}</span>
         <span className={`text-xs font-semibold ${overdue ? 'text-rose-400' : daysRemaining === 1 ? 'text-red-300' : daysRemaining === 2 ? 'text-orange-300' : 'text-slate-400'}`}>
-          {daysText} · {format(new Date(assignment.dueDate), 'MMM d, yyyy')}
+          {daysText} · {format(new Date(assignment.dueDate), 'MMM d')}
         </span>
       </div>
     </div>
