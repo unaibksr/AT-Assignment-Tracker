@@ -26,7 +26,7 @@ export const QuickActionCard = React.memo(function QuickActionCard({ assignment,
   }
 
   return (
-    <div className={`${colors.bg} border ${colors.border} border-l-4 p-4 rounded-xl shadow-sm flex items-center justify-between gap-3 transition-all`}>
+    <div className={`${colors.bg} border ${colors.border} border-l-4 p-3 rounded-xl shadow-sm flex items-center justify-between gap-2 transition-all`}>
       <div className="flex-1 min-w-0">
         <h3 className="font-semibold text-sm text-slate-100 truncate">
           {assignment.title}
@@ -34,16 +34,16 @@ export const QuickActionCard = React.memo(function QuickActionCard({ assignment,
         <span className={`text-xs font-medium ${colors.text}`}>{assignment.student} · {assignment.course}</span>
       </div>
 
-      <div className="flex flex-col items-end gap-1.5">
+      <div className="flex flex-col items-end gap-1">
         <span className={`text-xs font-semibold ${overdue ? 'text-rose-400' : daysRemaining === 1 ? 'text-red-300' : daysRemaining === 2 ? 'text-orange-300' : 'text-slate-400'}`}>
           {daysText}
         </span>
         <span className="text-[11px] text-slate-500">{format(new Date(assignment.dueDate), 'MMM d, yyyy')}</span>
         <div className="flex items-center gap-0.5">
-          <button onClick={() => onEdit(assignment)} className="p-1.5 text-slate-400 hover:text-slate-200">
+          <button onClick={() => onEdit(assignment)} className="p-1 text-slate-400 hover:text-slate-200">
             <Edit className="w-4 h-4" />
           </button>
-          <button onClick={() => onDelete(assignment.id)} className="p-1.5 text-slate-400 hover:text-rose-400">
+          <button onClick={() => onDelete(assignment.id)} className="p-1 text-slate-400 hover:text-rose-400">
             <Trash2 className="w-4 h-4" />
           </button>
         </div>
